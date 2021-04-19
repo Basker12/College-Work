@@ -25,15 +25,15 @@ class group:
         gender = input("Please write your gender: ")
         if gender == "Male" or "male" or "M" or "1":
             gender = self.genderIdentify
-            print("Your gender is: ", self.genderIdentify)
+            print("Your gender is:", self.genderIdentify)
 
         elif gender == "Female" or "female" or "F" or "2":
             gender = self.genderIdentify 
-            print("Your gender is: ", self.genderIdentify)
+            print("Your gender is:", self.genderIdentify)
 
         elif gender == "Other" or "other" or "3":
-            self.genderIdentify = input("Please write your gender: ")
-            print("Your gender is: ", self.genderIdentify)
+            self.genderIdentify = input("Please write your genderf: ")
+            print("Your gender is:", self.genderIdentify)
 
 
 bluegroup = group("Kacper" ,"Galecki", "Male")
