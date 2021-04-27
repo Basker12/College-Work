@@ -16,7 +16,7 @@ class LoginScreen(GridLayout):
 
         self.cols = 2
         self.inside.add_widget(Label(text="UserName: "))
-        self.username = TextInput(multiline=False)
+        self.username = TextInput(multiline=True)
         self.inside.add_widget(self.username)
 
         self.inside.add_widget(Label(text="Password: "))
@@ -25,14 +25,14 @@ class LoginScreen(GridLayout):
 
         self.add_widget(self.inside)
 
-        self.submit = Button(text="Submit", font_size=40)
+        self.submit = Button(text="Submit", font_size=1)
         self.submit.bind(on_press=self.click)
         self.add_widget(self.submit)
 
     def click(self, instance):
         name = self.username.text
-        passw = self.password.text
-        print(f"Username is:", name, "\nPassword is:", passw)
+        password = self.password.text
+        print(f"Username is: {name}\nPassword is {password}")
 
 class MyApp(App):
     def build(self):
