@@ -8,7 +8,7 @@ namespace BinarySearch
         static void Main(string[] args)
         {
             var arr = new[] {10, 20, 30, 40, 50};
-            var index = BinarySearch(arr, 30);
+            var index = BinarySearch(arr, 30); //Here you assign the value that you're searching for
             Console.WriteLine("Element found at {0}", index);
         }
 
