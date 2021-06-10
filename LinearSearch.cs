@@ -11,7 +11,7 @@ namespace LinearSearch2
 
             foreach (var i in newList)
             {
-                if (number == i)
+                if (number == i) //This linear search goes through every single value in the list and checks if it's the same as the user input.
                 {
                     Console.WriteLine("Oh, here is your number " + i);
                     break;
