@@ -1,87 +1,108 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace QuikGamingThingy
+namespace BinaryTree
 {
     class Program
     {
-        static void Main(string[] args)
+
+        public class Node
         {
-            Console.WriteLine("Welcome to this random game that i was asked to make! Please write your name: ");
-            string name = Console.ReadLine();
-            Console.WriteLine("Oh so your name is " + name);
+            public int Data { get; set; }
+            public Node Left { get; set; }
+            public Node Right { get; set; }
 
-            Random random = new Random();
-            int randomNumber = random.Next(1, 100);
-
-            int trys = 0;
-
-            Boolean guessing = true;
-            
-            while (guessing)
+            public Node()
             {
-                Console.WriteLine("Guess the number: ");
-                Console.WriteLine(randomNumber);
                 
-                int userNum;
-                userNum = int.Parse(Console.ReadLine());
-                
-                if (userNum == randomNumber)
-                {
-                    Console.WriteLine("Well done you guessed the random number correctly!");
-                    guessing = false;
-                }
+            }
 
-                if (userNum != randomNumber && userNum > randomNumber) //This checks if the number is too high and if the usernum is not equal too the random number
-                {
-                    Console.WriteLine("Sorry you guess the number too high, try again! \nWrite Quit if you want to exit the program or write Enter if you want to continue: ");
-                    string choice = Console.ReadLine();
-                    
-                    trys += 1;
-                    if (choice == "Enter")
-                    {
-                        Console.WriteLine("");
-                    }
-                    
-                    else if (choice == "Quit" || choice == "quit")
-                    {
-                        System.Environment.Exit(0);
-                    }
-                    
-                    else if (trys == 10)
-                    {
-                        Console.WriteLine("You have run out of trys!");
-                    }
-                }
-
-                if (userNum != randomNumber && userNum < randomNumber)
-                {
-                    Console.WriteLine("Sorry you guessed the number to low, try again! \nWrite Quit if you want to exit the program or write Enter if you want to continue:");
-                    string choice = Console.ReadLine();
-                    
-                    trys += 1;
-                    if (choice == "Enter")
-                    {
-                        Console.WriteLine("");
-                    }
-                    
-                    else if (choice == "Quit" || choice == "quit")
-                    {
-                        System.Environment.Exit(0);
-                    }
-                    
-                    else if (trys == 10)
-                    {
-                        Console.WriteLine("You have run out of trys");
-                        System.Environment.Exit(0);
-                    }
-                }
+            public Node(int data)
+            {
+                this.Data = data;
             }
         }
 
-        static void HotOrCold()
+        public class BinaryTree
         {
+            private Node _Root;
+
+            public BinaryTree()
+            {
+                _Root = null;
+            }
+
+            public void Insert(int data)
+            {
+                if (_Root == null)
+                {
+                    _Root = new Node(data);
+                    return;
+                }
+
+                InsertRec(_Root, new Node(data));
+            }
+
+            private void InsertRec(Node root, Node newNode)
+            {
+                if (root == null)
+                    root = newNode;
+
+                if (newNode.Data < root.Data)
+                {
+                    if (root.Left == null)
+                        root.Left = newNode;
+                    else
+                    {
+                        InsertRec(root.Left, newNode);
+                    }
+                }
+                else
+                {
+                    if (root.Right == null)
+                        root.Right = newNode;
+                    else
+                    {
+                        InsertRec(root.Right, newNode);
+                    }
+                }
+            }
+
+            private void DisplayTree(Node root)
+            {
+                if (root == null) return;
+                
+                DisplayTree(root.Left);
+                System.Console.Write(root.Data + "");
+                DisplayTree(root.Right);
+            }
+
+            public void DisplayTree()
+            {
+                DisplayTree(_Root);
+            }
             
+        }
+
+        class thisEpicTree
+        {
+            static void Main(string[] args)
+            {
+                BinaryTree tree = new BinaryTree();
+                Node root = new Node();
+                
+                tree.Insert(10);
+                tree.Insert(15);
+                tree.Insert(6);
+                tree.Insert(12);
+                tree.Insert(13);
+                tree.Insert(8);
+                tree.Insert(18);
+                tree.Insert(3);
+            }
         }
     }
 }
