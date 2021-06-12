@@ -94,7 +94,7 @@ namespace BinaryTree
                 BinaryTree tree = new BinaryTree();
                 Node root = new Node();
                 
-                tree.Insert(10);
+                tree.Insert(10); // Tree values
                 tree.Insert(15);
                 tree.Insert(6);
                 tree.Insert(12);
