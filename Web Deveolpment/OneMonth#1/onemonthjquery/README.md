@@ -30,4 +30,6 @@ Simple todo list app, using local storage to persist data.
 
 Apartment marketplace app with city filtering, and rendering JSON data using AJAX.
 
+This was set by Adam
+
 
